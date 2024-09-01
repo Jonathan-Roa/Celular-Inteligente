@@ -1,0 +1,399 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Mon Dec  4 16:13:23 2023
+
+OUTPUT FILE NAME:   <telefono.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001b89
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  000022d0  000fdd30  R  X
+  SRAM                  20000000   00040000  00000356  0003fcaa  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000022d0   000022d0    r-x
+  00000000    00000000    00000208   00000208    r-- .intvecs
+  00000208    00000208    00001a18   00001a18    r-x .text
+  00001c20    00001c20    00000650   00000650    r-- .const
+  00002270    00002270    00000060   00000060    r-- .cinit
+20000000    20000000    00000357   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    000000f3   00000000    rw- .bss
+  200002f4    200002f4    00000063   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000208     
+                  00000000    00000208     tm4c1294ncpdt_startup_ccs.obj (.intvecs)
+
+.text      0    00000208    00001a18     
+                  00000208    000015f0     main.obj (.text)
+                  000017f8    00000200     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  000019f8    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00001a94    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00001afc    00000048     driverlib.lib : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  00001b44    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00001b88    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001bbc    00000020     driverlib.lib : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  00001bdc    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001bf8    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001c06    0000000c     tm4c1294ncpdt_startup_ccs.obj (.text)
+                  00001c12    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00001c18    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001c1c    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00001c20    00000650     
+                  00001c20    0000039c     main.obj (.const:p)
+                  00001fbc    000001b0     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  0000216c    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  000021d8    00000030                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  00002208    00000015     main.obj (.const:.string:ATCMGS)
+                  0000221d    0000000f     main.obj (.const:.string:ATD)
+                  0000222c    0000000e     main.obj (.const:.string:MSJ)
+                  0000223a    0000000a     main.obj (.const:.string:CMGF_1)
+                  00002244    00000009     main.obj (.const:.string:CMGF)
+                  0000224d    00000008     main.obj (.const:.string:CSQ)
+                  00002255    00000002     main.obj (.const:.string:PUNTOYCOMA)
+                  00002257    00000001     --HOLE-- [fill = 0]
+                  00002258    00000008     driverlib.lib : sysctl.obj (.const:g_pui32VCOFrequencies)
+                  00002260    00000004     main.obj (.const:.string:AT)
+                  00002264    00000004     main.obj (.const:.string:ATA)
+                  00002268    00000004     main.obj (.const:.string:ATH)
+                  0000226c    00000004     main.obj (.const:.string:call)
+
+.cinit     0    00002270    00000060     
+                  00002270    0000003a     (.cinit..data.load) [load image, compression = lzss]
+                  000022aa    00000002     --HOLE-- [fill = 0]
+                  000022ac    0000000c     (__TI_handler_table)
+                  000022b8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000022c0    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    000000f3     UNINITIALIZED
+                  20000200    00000050     (.common:Rx)
+                  20000250    00000028     (.common:numt)
+                  20000278    00000020     (.common:envio)
+                  20000298    00000020     (.common:recibido)
+                  200002b8    00000004     (.common:c)
+                  200002bc    00000004     (.common:col)
+                  200002c0    00000004     (.common:delay)
+                  200002c4    00000004     (.common:edo)
+                  200002c8    00000004     (.common:i)
+                  200002cc    00000004     (.common:j)
+                  200002d0    00000004     (.common:k)
+                  200002d4    00000004     (.common:msmocall)
+                  200002d8    00000004     (.common:pantalla)
+                  200002dc    00000004     (.common:recibe)
+                  200002e0    00000004     (.common:ren)
+                  200002e4    00000004     (.common:valido)
+                  200002e8    00000004     (.common:z)
+                  200002ec    00000001     (.common:Temp)
+                  200002ed    00000001     (.common:Temp2)
+                  200002ee    00000001     (.common:Valcon)
+                  200002ef    00000001     (.common:d_uint8Dat)
+                  200002f0    00000001     (.common:d_uint8Dato)
+                  200002f1    00000001     (.common:pvar)
+                  200002f2    00000001     (.common:var)
+
+.data      0    200002f4    00000063     UNINITIALIZED
+                  200002f4    00000028     main.obj (.data:numt1)
+                  2000031c    00000018     main.obj (.data)
+                  20000334    00000010     main.obj (.data:arreglo)
+                  20000344    0000000e     main.obj (.data:puerta)
+                  20000352    00000005     main.obj (.data:error)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                          code   ro data   rw data
+       ------                          ----   -------   -------
+    .\
+       main.obj                        5616   1019      342    
+       tm4c1294ncpdt_startup_ccs.obj   12     520       0      
+    +--+-------------------------------+------+---------+---------+
+       Total:                          5628   1539      342    
+                                                               
+    C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                      622    596       0      
+    +--+-------------------------------+------+---------+---------+
+       Total:                          622    596       0      
+                                                               
+    C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj               156    0         0      
+       copy_decompress_lzss.c.obj      104    0         0      
+       autoinit.c.obj                  68     0         0      
+       boot_cortex_m.c.obj             52     0         0      
+       copy_zero_init.c.obj            28     0         0      
+       copy_decompress_none.c.obj      14     0         0      
+       exit.c.obj                      4      0         0      
+       pre_init.c.obj                  4      0         0      
+    +--+-------------------------------+------+---------+---------+
+       Total:                          430    0         0      
+                                                               
+       Stack:                          0      0         512    
+       Linker Generated:               0      94        0      
+    +--+-------------------------------+------+---------+---------+
+       Grand Total:                    6680   2229      854    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000022c0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002270, load size=0000003a bytes, run addr=200002f4, run size=00000063 bytes, compression=lzss
+	.bss: load addr=000022b8, load size=00000008 bytes, run addr=20000200, run size=000000f3 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000022ac records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00000841  AND491                        
+0000085d  BUSY                          
+00000947  BUSY1                         
+000008dd  BYTEDIS                       
+00001c1d  C$$EXIT                       
+0000074b  CLS                           
+00000d61  ComandMensajeModem            
+00000d41  ENTER                         
+00000729  ESCCOM                        
+000006fd  ESCDAT                        
+00000765  HOME                          
+00000681  INILCD                        
+00000de1  Inicializar                   
+0000086d  LEECON                        
+00000f9d  MENSAJEPRED                   
+00001c07  ResetISR                      
+20000200  Rx                            
+000017f9  SysCtlClockFreqSet            
+00001c13  SysCtlDelay                   
+200002ec  Temp                          
+200002ed  Temp2                         
+00000d09  UART0_Escribe_dato            
+00000c09  UART0_INI                     
+00000ce5  UART0_Lee_dato                
+00000d25  UART6_Escribe_dato            
+00000c75  UART6_INI                     
+00001399  UART6_INT                     
+00000cf3  UART6_Lee_dato                
+200002ee  Valcon                        
+000006df  _E                            
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+000022c0  __TI_CINIT_Base               
+000022d0  __TI_CINIT_Limit              
+000022ac  __TI_Handler_Table_Base       
+000022b8  __TI_Handler_Table_Limit      
+00001b45  __TI_auto_init_nobinit_nopinit
+00001a95  __TI_decompress_lzss          
+00001bf9  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001bdd  __TI_zero_init_nomemset       
+000019f9  __aeabi_memcpy                
+000019f9  __aeabi_memcpy4               
+000019f9  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00001b89  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001c19  _system_pre_init              
+00001c1d  abort                         
+20000334  arreglo                       
+ffffffff  binit                         
+200002b8  c                             
+200002bc  col                           
+00000279  configura                     
+00000b27  contesta                      
+20000324  contnumeros                   
+00000b39  cuelga                        
+200002ef  d_uint8Dat                    
+200002f0  d_uint8Dato                   
+200002c0  delay                         
+00000405  detect                        
+200002c4  edo                           
+2000032c  ele                           
+20000278  envio                         
+20000352  error                         
+00000000  g_pfnVectors                  
+200002c8  i                             
+200002cc  j                             
+200002d0  k                             
+00001605  limpia_d                      
+00000953  llamada                       
+00000209  main                          
+000019f9  memcpy                        
+000009ed  mensaje                       
+00000a69  modem                         
+200002d4  msmocall                      
+20000250  numt                          
+200002f4  numt1                         
+20000328  output                        
+00001c20  p                             
+200002d8  pantalla                      
+20000330  pola                          
+2000031c  potencia                      
+20000344  puerta                        
+20000320  pulso                         
+200002f1  pvar                          
+200002dc  recibe                        
+0000168d  recibe_mensaje                
+20000298  recibido                      
+200002e0  ren                           
+00000e2d  salida                        
+000012b9  salidapot                     
+00000d51  sendComandInitModem           
+00000df5  send_Inst                     
+00000eed  send_Inst_llamada             
+200002e4  valido                        
+200002f2  var                           
+200002e8  z                             
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+00000209  main                          
+00000279  configura                     
+00000405  detect                        
+00000681  INILCD                        
+000006df  _E                            
+000006fd  ESCDAT                        
+00000729  ESCCOM                        
+0000074b  CLS                           
+00000765  HOME                          
+00000841  AND491                        
+0000085d  BUSY                          
+0000086d  LEECON                        
+000008dd  BYTEDIS                       
+00000947  BUSY1                         
+00000953  llamada                       
+000009ed  mensaje                       
+00000a69  modem                         
+00000b27  contesta                      
+00000b39  cuelga                        
+00000c09  UART0_INI                     
+00000c75  UART6_INI                     
+00000ce5  UART0_Lee_dato                
+00000cf3  UART6_Lee_dato                
+00000d09  UART0_Escribe_dato            
+00000d25  UART6_Escribe_dato            
+00000d41  ENTER                         
+00000d51  sendComandInitModem           
+00000d61  ComandMensajeModem            
+00000de1  Inicializar                   
+00000df5  send_Inst                     
+00000e2d  salida                        
+00000eed  send_Inst_llamada             
+00000f9d  MENSAJEPRED                   
+000012b9  salidapot                     
+00001399  UART6_INT                     
+00001605  limpia_d                      
+0000168d  recibe_mensaje                
+000017f9  SysCtlClockFreqSet            
+000019f9  __aeabi_memcpy                
+000019f9  __aeabi_memcpy4               
+000019f9  __aeabi_memcpy8               
+000019f9  memcpy                        
+00001a95  __TI_decompress_lzss          
+00001b45  __TI_auto_init_nobinit_nopinit
+00001b89  _c_int00_noargs               
+00001bdd  __TI_zero_init_nomemset       
+00001bf9  __TI_decompress_none          
+00001c07  ResetISR                      
+00001c13  SysCtlDelay                   
+00001c19  _system_pre_init              
+00001c1d  C$$EXIT                       
+00001c1d  abort                         
+00001c20  p                             
+000022ac  __TI_Handler_Table_Base       
+000022b8  __TI_Handler_Table_Limit      
+000022c0  __TI_CINIT_Base               
+000022d0  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  Rx                            
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000250  numt                          
+20000278  envio                         
+20000298  recibido                      
+200002b8  c                             
+200002bc  col                           
+200002c0  delay                         
+200002c4  edo                           
+200002c8  i                             
+200002cc  j                             
+200002d0  k                             
+200002d4  msmocall                      
+200002d8  pantalla                      
+200002dc  recibe                        
+200002e0  ren                           
+200002e4  valido                        
+200002e8  z                             
+200002ec  Temp                          
+200002ed  Temp2                         
+200002ee  Valcon                        
+200002ef  d_uint8Dat                    
+200002f0  d_uint8Dato                   
+200002f1  pvar                          
+200002f2  var                           
+200002f4  numt1                         
+2000031c  potencia                      
+20000320  pulso                         
+20000324  contnumeros                   
+20000328  output                        
+2000032c  ele                           
+20000330  pola                          
+20000334  arreglo                       
+20000344  puerta                        
+20000352  error                         
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[107 symbols]
